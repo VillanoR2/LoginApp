@@ -20,7 +20,7 @@ export default {
 
         let metaTwo = document.createElement("meta");
         metaTwo.setAttribute("name", "xm-bind-id-redirect_uri");
-        metaTwo.setAttribute("content", "[REDIRECT_URI]");
+        metaTwo.setAttribute("content", "https://loginapp-three.vercel.app/about");
         metaTwo.setAttribute("id", "metaTransmitTwo");
         document.head.appendChild(metaTwo);
 
@@ -49,13 +49,6 @@ export default {
         document.head.removeChild(metaTwo);
     },
     methods: {
-        functionOne() {
-
-        },
-        funcionTwo() {
-
-        }
     }
 }
-
 </script>
