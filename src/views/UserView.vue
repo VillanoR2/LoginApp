@@ -1,12 +1,19 @@
 <template>
-  <div class="about">
+  <div class="user">
     <h1>Redireccionado Test</h1>
     Datos de Usuario (Pagina de prueba)
+    <UserPage msg="Welcome to Your Vue.js App"/>
+
   </div>
 </template>
 
 <script>
+import UserPage from '@/components/UserPage.vue'
 export default {
+  name: 'UserView',
+  components: {
+    UserPage
+  },
   data() {
     return {
       nombre: ""

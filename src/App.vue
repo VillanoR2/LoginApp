@@ -38,7 +38,7 @@ export default {
 
         let metaTwo = document.createElement("meta");
         metaTwo.setAttribute("name", "xm-bind-id-redirect_uri");
-        metaTwo.setAttribute("content", "https://loginapp-three.vercel.app/about");
+        metaTwo.setAttribute("content", "https://loginapp-three.vercel.app/user");
         metaTwo.setAttribute("id", "metaTransmitTwo");
         document.head.appendChild(metaTwo);
 
