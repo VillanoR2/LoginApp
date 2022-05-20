@@ -1,6 +1,7 @@
 <template>
   <div class="about">
     <h1>Redireccionado Test</h1>
+    Datos de Usuario (Pagina de prueba)
   </div>
 </template>
 
