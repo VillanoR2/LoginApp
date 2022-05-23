@@ -87,7 +87,7 @@ export default {
     document.head.appendChild(scriptTwo);
 
     window.XmBindId.processRedirectResponse()
-      .then(res => { this.newMethod(res.code); },
+      .then(res => { console.log(res.code); },
         err => { handleError(err); })
 
   },
