@@ -9,6 +9,18 @@
 
 <script>
 import UserPage from '@/components/UserPage.vue'
+
+   function sendAuthCodeToServer(authCode) {
+    console.log(authCode);
+   }
+   function handleError(err) {
+        console.log(err);
+
+   }
+   window.XmBindId.processRedirectResponse()
+    .then(res => { sendAuthCodeToServer(res.code); },
+        err => { handleError(err); })
+        
 export default {
   name: 'UserView',
   components: {
@@ -51,4 +63,5 @@ export default {
   methods: {
   }
 }
+
 </script>

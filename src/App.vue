@@ -23,18 +23,6 @@
 </template>
 
 <script>
-
-   function sendAuthCodeToServer(authCode) {
-    console.log(authCode);
-   }
-   function handleError(err) {
-        console.log(err);
-
-   }
-   window.XmBindId.processRedirectResponse()
-    .then(res => { sendAuthCodeToServer(res.code); },
-        err => { handleError(err); })
-
 export default {
     data() {
         return {
