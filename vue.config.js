@@ -1,8 +1,11 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
   transpileDependencies: true,
-  devServer: {
-    proxy: 'https://signin.bindid-sandbox.io/',
+  configureWebpack: {
+    devServer: {
+      proxy: 'https://signin.bindid-sandbox.io/',
+      headers: { "Access-Control-Allow-Origin": "*" }
     }
-  
+  }
+
 })
