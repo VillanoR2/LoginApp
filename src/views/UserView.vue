@@ -24,17 +24,17 @@ export default {
     let metaOne = document.createElement("meta");
     metaOne.setAttribute("name", "xm-bind-id-client_id");
     metaOne.setAttribute("content", "fb355573.417b53dd.tid_414530e0.bindid.io");
-    metaOne.setAttribute("id", "metaTransmitOne");
+    metaOne.setAttribute("id", "metaTransmitOneRecive");
     document.head.appendChild(metaOne);
 
     let scriptOne = document.createElement("script");
     scriptOne.setAttribute("src", "https://polyfill.io/v3/polyfill.min.js?features=Promise%2CPromise.prototype.finally%2CTextDecoder%2CTextEncoder%2CObject.entries");
-    scriptOne.setAttribute("id", "scrpitTransmitOne");
+    scriptOne.setAttribute("id", "scrpitTransmitOneRecive");
     document.head.appendChild(scriptOne);
 
     let scriptTwo = document.createElement("script");
     scriptTwo.setAttribute("src", "https://signin.bindid-sandbox.io/bindid-sdk/transmit-bind-id-sdk.js");
-    scriptTwo.setAttribute("id", "scrpitTransmitTwo");
+    scriptTwo.setAttribute("id", "scrpitTransmitTwoRecive");
     scriptTwo.defer = true
     document.head.appendChild(scriptTwo);
 
@@ -52,13 +52,13 @@ export default {
 
   },
   unmounted() {
-    let scriptOne = document.getElementById("scrpitTransmitOne")
+    let scriptOne = document.getElementById("scrpitTransmitOneRecive")
     document.head.removeChild(scriptOne);
 
-    let scriptTwo = document.getElementById("scrpitTransmitTwo")
+    let scriptTwo = document.getElementById("scrpitTransmitTwoRecive")
     document.head.removeChild(scriptTwo);
 
-    let metaOne = document.getElementById("metaTransmitOne")
+    let metaOne = document.getElementById("metaTransmitOneRecive")
     document.head.removeChild(metaOne);
 
   },
