@@ -49,15 +49,15 @@ export default {
 
   },
   methods: {
-    // sendAuthCodeToServer(authCode) {
-    //   // Add code to send the authCode to your application server here
-    // },
-    // handleError(err) {
-    //   // Add code to process the authentication error here
-    // }
-    // window.XmBindId.processRedirectResponse()
-    // .then(res => { sendAuthCodeToServer(res.code); },
-    //     err => { handleError(err); })
+    sendAuthCodeToServer(authCode) {
+      // Add code to send the authCode to your application server here
+    },
+    handleError(err) {
+      // Add code to process the authentication error here
+    }
+    
+    window.XmBindId.processRedirectResponse().then(res => { sendAuthCodeToServer(res.code); },
+        err => { handleError(err); })
   }
 }
 </script>
