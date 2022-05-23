@@ -10,6 +10,51 @@
 <script>
 import UserPage from '@/components/UserPage.vue'
 
+function sendAuthCodeToServer(authCode) {
+  console.log(authCode);
+  //grant_type=authorization_code&code=[AUTH_CODE]&redirect_uri=[REDIRECT_URI]&client_id=[CLIENT_ID]&client_secret=[CLIENT_SECRET]
+  var details = {
+    'grant_type': 'authorization_code',
+    'code': authCode,
+    'redirect_uri': 'https://loginapp-three.vercel.app/user',
+    'client_id': 'fb355573.417b53dd.tid_414530e0.bindid.io',
+    'client_secret': '275577f6-fec4-459f-8e74-4598cad97294'
+  };
+
+  var formBody = [];
+  for (var property in details) {
+    var encodedKey = encodeURIComponent(property);
+    var encodedValue = encodeURIComponent(details[property]);
+    formBody.push(encodedKey + "=" + encodedValue);
+  }
+  formBody = formBody.join("&");
+
+  const requestOptions = {
+    method: "POST",
+    headers: new Headers({ "Content-Type": "application/x-www-form-urlencoded" }),
+    body: formBody //
+  };
+
+  fetch("signin.bindid-sandbox.io", requestOptions)
+  .then((response) => {
+    if(response.ok){
+      response.json((json) => {
+        console.log(json)
+      }).catch((error) =>{
+        console.error("Error al parsear Json",error)
+      })
+    }else{
+      console.error("Respuesta no soportada", response);
+    }
+  }).catch((error) =>{
+        console.error("Error en la peticion",error)
+      })
+}
+function handleError(err) {
+  console.log(err);
+
+}
+
 export default {
   name: 'UserView',
   components: {
@@ -38,17 +83,9 @@ export default {
     scriptTwo.defer = true
     document.head.appendChild(scriptTwo);
 
-    function sendAuthCodeToServer(authCode) {
-      console.log(authCode);
-    }
-    function handleError(err) {
-      console.log(err);
-
-    }
     window.XmBindId.processRedirectResponse()
       .then(res => { sendAuthCodeToServer(res.code); },
         err => { handleError(err); })
-
 
   },
   unmounted() {
