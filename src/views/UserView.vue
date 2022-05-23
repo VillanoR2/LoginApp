@@ -31,8 +31,10 @@ function sendAuthCodeToServer(authCode) {
 
   const requestOptions = {
     method: "POST",
-    headers: new Headers({ "Content-Type": "application/x-www-form-urlencoded" }),
-    body: formBody //
+    headers: new Headers({ "Content-Type": "application/x-www-form-urlencoded",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "*" }),
+    body: formBody
   };
 
   fetch("https://signin.bindid-sandbox.io/token", requestOptions)
