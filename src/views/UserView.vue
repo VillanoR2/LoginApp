@@ -35,7 +35,7 @@ function sendAuthCodeToServer(authCode) {
     body: formBody //
   };
 
-  fetch("signin.bindid-sandbox.io/token", requestOptions)
+  fetch("https://signin.bindid-sandbox.io/token", requestOptions)
   .then((response) => {
     if(response.ok){
       response.json((json) => {
