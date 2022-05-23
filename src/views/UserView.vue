@@ -12,7 +12,6 @@ import UserPage from '@/components/UserPage.vue'
 
 function sendAuthCodeToServer(authCode) {
   console.log(authCode);
-  //grant_type=authorization_code&code=[AUTH_CODE]&redirect_uri=[REDIRECT_URI]&client_id=[CLIENT_ID]&client_secret=[CLIENT_SECRET]
   var details = {
     'grant_type': 'authorization_code',
     'code': authCode,
@@ -87,7 +86,7 @@ export default {
     document.head.appendChild(scriptTwo);
 
     window.XmBindId.processRedirectResponse()
-      .then(res => { sendAuthCodeToServer(res.code); },
+      .then(res => { this.newMethod(res.code); },
         err => { handleError(err); })
 
   },
@@ -103,6 +102,9 @@ export default {
 
   },
   methods: {
+    newMethod(authCode){
+      sendAuthCodeToServer(authCode)
+    }
   }
 }
 
