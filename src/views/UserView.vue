@@ -34,7 +34,8 @@ function sendAuthCodeToServer(authCode) {
     headers: new Headers({ "Content-Type": "application/x-www-form-urlencoded",
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "*" }),
-    body: formBody
+    body: formBody,
+    mode: 'cors', 
   };
 
   fetch("https://signin.bindid-sandbox.io/token", requestOptions)
