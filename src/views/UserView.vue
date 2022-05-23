@@ -35,7 +35,7 @@ function sendAuthCodeToServer(authCode) {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "*" }),
     body: formBody,
-    mode: 'cors', 
+    mode: 'no-cors', 
   };
 
   fetch("https://signin.bindid-sandbox.io/token", requestOptions)
