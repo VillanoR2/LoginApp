@@ -32,7 +32,7 @@ function sendAuthCodeToServer(authCode) {
   const requestOptions = {
     method: "POST",
     headers: new Headers({ "Content-Type": "application/x-www-form-urlencoded",
-    "Access-Control-Allow-Origin": "https://signin.bindid-sandbox.io/token",
+    "Access-Control-Allow-Origin": "https://signin.bindid-sandbox.io/",
     "Access-Control-Allow-Methods": "POST" }),
     body: formBody
   };
