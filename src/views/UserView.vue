@@ -2,7 +2,7 @@
   <div class="user">
     <h1>Redireccionado Test</h1>
     Datos de Usuario (Pagina de prueba)
-    <UserPage msg="Welcome to Your Vue.js App"/>
+    <UserPage msg="Welcome to Your Vue.js App" />
 
   </div>
 </template>
@@ -10,17 +10,6 @@
 <script>
 import UserPage from '@/components/UserPage.vue'
 
-   function sendAuthCodeToServer(authCode) {
-    console.log(authCode);
-   }
-   function handleError(err) {
-        console.log(err);
-
-   }
-   window.XmBindId.processRedirectResponse()
-    .then(res => { sendAuthCodeToServer(res.code); },
-        err => { handleError(err); })
-        
 export default {
   name: 'UserView',
   components: {
@@ -48,6 +37,19 @@ export default {
     scriptTwo.setAttribute("id", "scrpitTransmitTwo");
     scriptTwo.defer = true
     document.head.appendChild(scriptTwo);
+
+    function sendAuthCodeToServer(authCode) {
+      console.log(authCode);
+    }
+    function handleError(err) {
+      console.log(err);
+
+    }
+    window.XmBindId.processRedirectResponse()
+      .then(res => { sendAuthCodeToServer(res.code); },
+        err => { handleError(err); })
+
+
   },
   unmounted() {
     let scriptOne = document.getElementById("scrpitTransmitOne")
