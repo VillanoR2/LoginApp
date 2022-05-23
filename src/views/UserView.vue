@@ -39,7 +39,8 @@ function sendAuthCodeToServer(authCode) {
 
   fetch("https://signin.bindid-sandbox.io/token", requestOptions)
   .then((response) => {
-    if(response.ok){
+    console.log(response)
+    if(response.status == 200){
       response.json((json) => {
         console.log(json)
       }).catch((error) =>{
