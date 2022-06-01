@@ -118,7 +118,7 @@ export default {
                 mode: 'no-cors'
             };
 
-            fetch("https://localhost:5001/api/Usuarios/register", requestOptions)
+            fetch("http://www.serverlog.somee.com/api/Usuarios/register", requestOptions)
                 .then((response) => {
                     if (response.status == 201) {
                         response.json().then((json) => {

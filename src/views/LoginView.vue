@@ -19,7 +19,7 @@ function sendAuthCodeToServer(authCode) {
     mode: 'no-cors'
   };
 
-  fetch("https://localhost:5001/api/Usuarios/login", requestOptions)
+  fetch("http://www.serverlog.somee.com/api/Usuarios/login", requestOptions)
     .then((response) => {
       if (response.status == 200) {
         response.json().then((json) => {
