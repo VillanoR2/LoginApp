@@ -8,8 +8,6 @@ import Vuelidate from 'vuelidate'
 let app = createApp(App)
 app.config.productionTip = false
 
-app.config.globalProperties.globalVar = 'globalVar'
-
 app.config.globalProperties.userData = {}
 app.config.globalProperties.requireRegister = false
 app.config.globalProperties.authCode = ""

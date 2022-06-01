@@ -18,9 +18,10 @@ function sendAuthCodeToServer(authCode) {
   fetch(newURL , requestOptions).then((response) => {
       console.log(response)
       if (response.status == 200) {
-        response.json().then(body => console.log(body));
-        response.text().then(body => console.log(body));
-
+        response.json().then(body => {
+          console.log(body)
+          this.userData = body.result
+        });
           // this.$router.push("/user");
 
       } else if (response.status == 404) {
