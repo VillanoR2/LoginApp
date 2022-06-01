@@ -20,7 +20,7 @@ function sendAuthCodeToServer(authCode) {
       if (response.status == 200) {
         response.json().then(body => {
           console.log(body)
-          this.userData = body.result
+          this.userData = body
         });
           // this.$router.push("/user");
 
