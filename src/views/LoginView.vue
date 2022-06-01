@@ -20,15 +20,15 @@ function sendAuthCodeToServer(authCode) {
       if (response.status == 200) {
         response.json().then(body => {
           console.log(body)
-          this.userData = body.result
+          this.$userData = body.result
         });
           // this.$router.push("/user");
 
       } else if (response.status == 404) {
-        this.requireRegister = true;
+        this.$requireRegister = true;
         this.$router.push("/home");
       } else if (response.status == 400) {
-        this.requireRegister = false;
+        this.$requireRegister = false;
         console.error("Error interno...", response)
         this.$router.push("/home");
         }else {
@@ -71,12 +71,12 @@ export default {
 
     window.XmBindId.processRedirectResponse()
       .then(res => {
-        if (!this.requireRegister) {
+        if (!this.$requireRegister) {
           console.log("Enviando codigo al server", res)
           sendAuthCodeToServer(res.code);
         }else{
           console.log("Requiere Registrarse", res)
-          this.authCode = res.code;
+          this.$authCode = res.code;
           this.$router.push("/register");
         }
       },

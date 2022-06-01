@@ -8,7 +8,7 @@ import Vuelidate from 'vuelidate'
 let app = createApp(App)
 app.config.productionTip = false
 
-app.config.globalProperties.userData = {
+app.config.globalProperties.$userData = {
     "apellido": "",
     "bindAlias": "",
     "departamento": "",
@@ -19,8 +19,8 @@ app.config.globalProperties.userData = {
     "rol": "",
     "telefono": ""
 }
-app.config.globalProperties.requireRegister = false
-app.config.globalProperties.authCode = ""
+app.config.globalProperties.$requireRegister = false
+app.config.globalProperties.$authCode = ""
 
 app.use(Vuelidate)
 
