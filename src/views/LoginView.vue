@@ -14,13 +14,11 @@ function sendAuthCodeToServer(authCode) {
     method: "POST",
     mode: 'cors'
   };
+  console.log(this.$userData)
 
   fetch(newURL , requestOptions).then((response) => {
       console.log(response)
       if (response.status == 200) {
-        console.log(this.$userData)
-        this.$userData = response.text();
-        console.log(this.$userData)
         response.json().then(body => {
           console.log(body)
         });
