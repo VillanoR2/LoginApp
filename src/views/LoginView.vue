@@ -12,9 +12,6 @@ function sendAuthCodeToServer(authCode) {
   newURL.searchParams.set('authCode', authCode)
   const requestOptions = {
     method: "POST",
-    headers: new Headers({
-      "Content-Types": "application/json",
-    }),
     mode: 'no-cors'
   };
 
