@@ -15,7 +15,7 @@ function sendAuthCodeToServer(authCode) {
     headers: new Headers({
       "Content-Types": "application/json",
     }),
-    body: JSON.stringify({ authCode: authCode }),
+    body: JSON.stringify({ "authCode": authCode }),
     mode: 'no-cors'
   };
 
