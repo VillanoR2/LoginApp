@@ -30,7 +30,7 @@ function sendAuthCodeToServer(authCode) {
         })
 
       } else if (response.status == 404) {
-        this.$requireRegister = true;
+        this.requireRegister = true;
         this.$router.push("/home");
       } else {
         console.error("Estatus no manejada", response)
@@ -72,10 +72,10 @@ export default {
 
     window.XmBindId.processRedirectResponse()
       .then(res => {
-        if (!this.$requireRegister) {
+        if (!this.requireRegister) {
           sendAuthCodeToServer(res.code);
         }else{
-          this.$authCode = res.code;
+          this.authCode = res.code;
           this.$router.push("/register");
         }
       },
