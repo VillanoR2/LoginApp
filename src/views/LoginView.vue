@@ -23,7 +23,7 @@ function sendAuthCodeToServer(authCode) {
     .then((response) => {
       if (response.status == 200) {
         response.json().then((json) => {
-          this.$userData = json
+          this.userData = json
           this.$router.push("/user");
         }).catch((error) => {
           console.error("Error en el parse a json en login ", error)
