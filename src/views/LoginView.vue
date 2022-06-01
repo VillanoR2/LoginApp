@@ -18,12 +18,9 @@ function sendAuthCodeToServer(authCode) {
   fetch(newURL , requestOptions).then((response) => {
       console.log(response)
       if (response.status == 200) {
-        response.json().then((json) => {
-          this.userData = json
-          this.$router.push("/user");
-        }).catch((error) => {
-          console.error("Error en el parse a json en login ", error)
-        })
+        console.log(response.text());
+          // this.$router.push("/user");
+
       } else if (response.status == 404) {
         this.requireRegister = true;
         this.$router.push("/home");
