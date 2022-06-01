@@ -9,17 +9,17 @@
 
 function sendAuthCodeToServer(authCode) {
   console.log(authCode);
-
+  let newURL = new URL("https://www.serverlog.somee.com/api/Usuarios/login"); 
+  newURL.searchParams.set('authCode', authCode)
   const requestOptions = {
     method: "POST",
     headers: new Headers({
       "Content-Types": "application/json",
     }),
-    body: JSON.stringify({ "authCode": authCode }),
     mode: 'no-cors'
   };
 
-  fetch("https://www.serverlog.somee.com/api/Usuarios/login", requestOptions)
+  fetch(newURL , requestOptions)
     .then((response) => {
       if (response.status == 200) {
         response.json().then((json) => {
