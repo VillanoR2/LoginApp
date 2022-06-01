@@ -32,7 +32,11 @@ function sendAuthCodeToServer(authCode) {
       } else if (response.status == 404) {
         this.requireRegister = true;
         this.$router.push("/home");
-      } else {
+      } else if (response.status == 400) {
+        this.requireRegister = false;
+        console.error("Error interno...", response)
+        this.$router.push("/home");
+        }else {
         console.error("Estatus no manejada", response)
       }
     }).catch((error) => {
