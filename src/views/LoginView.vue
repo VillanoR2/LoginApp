@@ -45,7 +45,7 @@ function sendAuthCodeToServer(authCode) {
 }
 
 function handleError(err) {
-  console.log(err);
+  console.error(err);
 
 }
 
