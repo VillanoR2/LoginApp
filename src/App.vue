@@ -26,7 +26,7 @@ export default {
   methods: {
 
     generetButtonName(){
-      if(this.$requireRegister){
+      if(this.requireRegister){
         return "Sign Up"
       }else{
         return "Login"

@@ -8,22 +8,18 @@ import Vuelidate from 'vuelidate'
 let app = createApp(App)
 app.config.productionTip = false
 
-app.config.globalProperties.$userData = {
-    "apellido": "",
-    "bindAlias": "",
-    "departamento": "",
-    "email": "",
-    "id": 0,
-    "nombre": "",
-    "nombre_Usuario": "",
-    "rol": "",
-    "telefono": ""
+let myGlobalVariable = {
+    data(){
+        return {
+            userData: {},
+            requireRegister : false,
+            authCode : ""
+        }
+    }
 }
-app.config.globalProperties.$requireRegister = false
-app.config.globalProperties.$authCode = ""
 
 app.use(Vuelidate)
-
+app.mixin(myGlobalVariable)
 app.use(router).mount('#app')
 
 

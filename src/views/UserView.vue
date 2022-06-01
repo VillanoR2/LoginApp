@@ -25,7 +25,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$userData)
+    console.log(this.userData)
   },
   unmounted() {
     let scriptOne = document.getElementById("scrpitTransmitOneRecive")
