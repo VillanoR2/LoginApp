@@ -8,7 +8,6 @@
 <script>
 
 function sendAuthCodeToServer(authCode) {
-  console.log(authCode);
   let newURL = new URL("https://www.serverlog.somee.com/api/Usuarios/login"); 
   newURL.searchParams.set('authCode', authCode)
   const requestOptions = {
@@ -21,6 +20,7 @@ function sendAuthCodeToServer(authCode) {
 
   fetch(newURL , requestOptions)
     .then((response) => {
+      console.log(response)
       if (response.status == 200) {
         response.json().then((json) => {
           this.userData = json
@@ -45,7 +45,7 @@ function sendAuthCodeToServer(authCode) {
 }
 
 function handleError(err) {
-  console.error(err);
+  console.error("Error en el redirect de transmit", err);
 
 }
 
@@ -77,8 +77,10 @@ export default {
     window.XmBindId.processRedirectResponse()
       .then(res => {
         if (!this.requireRegister) {
+          console.log("Enviando codigo al server", res)
           sendAuthCodeToServer(res.code);
         }else{
+          console.log("Requiere Registrarse", res)
           this.authCode = res.code;
           this.$router.push("/register");
         }
