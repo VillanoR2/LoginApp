@@ -12,11 +12,10 @@ function sendAuthCodeToServer(authCode) {
   newURL.searchParams.set('authCode', authCode)
   const requestOptions = {
     method: "POST",
-    mode: 'no-cors'
+    mode: 'cors'
   };
 
-  fetch(newURL , requestOptions)
-    .then((response) => {
+  fetch(newURL , requestOptions).then((response) => {
       console.log(response)
       if (response.status == 200) {
         response.json().then((json) => {
@@ -25,7 +24,6 @@ function sendAuthCodeToServer(authCode) {
         }).catch((error) => {
           console.error("Error en el parse a json en login ", error)
         })
-
       } else if (response.status == 404) {
         this.requireRegister = true;
         this.$router.push("/home");
