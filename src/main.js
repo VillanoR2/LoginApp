@@ -11,7 +11,9 @@ app.config.productionTip = false
 let myGlobalVariable = {
     data(){
         return {
-            userData: {},
+            userData: {
+                test : "texto de prueba"
+            },
             requireRegister : false,
             authCode : ""
         }
